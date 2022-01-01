@@ -15,7 +15,7 @@ public class SortingArray {
     }
 
     public SortingArray(App app) {
-        initializeArray(256, true, 10, app);
+        initializeArray(256, true, 1, app);
     }
 
     public void initializeArray(int length, boolean shuffle, int delay, App app) {
@@ -53,6 +53,8 @@ public class SortingArray {
     }   
 
     public void shuffle() {
+        resetColors();
+
         int index;
         Random random = new Random();
         for (int i = length - 1; i > 0; i--)

@@ -14,12 +14,23 @@ public class BubbleSort implements SortingAlgorithm {
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
 
+                    array.getRed()[j + 1] = 255;
+
+                    for (int k = 0; k < array.getRed().length; k++) {
+                        if (k != j + 1) array.getRed()[k] = 0;
+                    }
+
                     array.getApp().repaint();
                     Util.sleepFor(Util.milliToNano(array.getDelay()));
                 }
             }
         }
 
-        array.getApp().repaint();
+        array.resetColors();
+        for (int i = 0; i < arr.length; i++) {
+            array.getGreen()[i] = 255;
+            array.getApp().repaint();
+            Util.sleepFor(1000000000 / arr.length);
+        }
     }
 }

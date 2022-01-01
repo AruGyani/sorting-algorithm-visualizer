@@ -7,7 +7,8 @@ import java.awt.Graphics2D;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import algorithms.InsertionSort;
+import algorithms.BubbleSort;
+import algorithms.CycleSort;
 
 public class App extends JPanel {
     // Setup
@@ -19,7 +20,7 @@ public class App extends JPanel {
     public App() {
         setFocusable(true);
 
-        arr = new SortingArray(this);
+        arr = new SortingArray(100, true, 10, this);
     }
 
     public void paint(Graphics g2) {
@@ -42,8 +43,10 @@ public class App extends JPanel {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        new CycleSort().sort(arr);
         arr.shuffle();
-        new InsertionSort().sort(arr);
+        new BubbleSort().sort(arr);
+        
     }
 
     public int getWidth() {

@@ -7,7 +7,6 @@ public class CycleSort implements SortingAlgorithm {
     public void sort(SortingArray array) {
         int[] arr = array.getData();
         int n = arr.length;
-        int writes = 0;
  
         // traverse array elements and put it to on
         // the right place
@@ -37,7 +36,6 @@ public class CycleSort implements SortingAlgorithm {
                 arr[pos] = temp;
                 array.getApp().repaint();
                 Util.sleepFor(Util.milliToNano(array.getDelay()));
-                writes++;
             }
  
             // Rotate rest of the cycle
@@ -60,7 +58,6 @@ public class CycleSort implements SortingAlgorithm {
                     arr[pos] = temp;
                     array.getApp().repaint();
                     Util.sleepFor(Util.milliToNano(array.getDelay()));
-                    writes++;
                 }
             }
         }
